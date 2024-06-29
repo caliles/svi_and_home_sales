@@ -32,7 +32,7 @@ def pull_and_prep_zillow_data(dl_year, state_fips_code = "All"):
     df_zillow['county_fips_code'] =  df_zillow['StateCodeFIPS'] + df_zillow['MunicipalCodeFIPS']
     months_to_avg_list = []
     for n in df_zillow.columns:
-        if n[0:4] == '2020':
+        if n[0:4] == dl_year:
             print(n)
             months_to_avg_list.append(n)
     df_zillow['average'] = df_zillow[months_to_avg_list].mean(axis=1)
@@ -46,11 +46,12 @@ def main(dl_year, state_fips_code, project_id, dataset_name, table_id):
     df_st_zillow = pull_and_prep_zillow_data(dl_year, state_fips_code)
     
     # Pull Area Deprivation Index information by county for the state of interest.  Also pull county geometry information.
-    adi_query = 'SELECT * FROM `bigquery-public-data.broadstreet_adi.area_deprivation_index_by_county` WHERE YEAR = '
+    adi_query = 'SELECT * FROM `bigquery-public-data.broadstreet_adi.area_deprivation_index_by_county` WHERE YEAR ='
     geo_query = 'SELECT * FROM `bigquery-public-data.geo_us_boundaries.counties`'
     if state_fips_code != 'All':
-        adi_df = bq_download(f'{adi_query} {dl_year} AND state_fips_code = {state_fips_code}')
-        geo_df = bq_download(f'{geo_query} where state_fips_code = "{state_fips_code}')
+        print(f'{adi_query} {dl_year} AND state_fips_code = "{state_fips_code}"')
+        adi_df = bq_download(f'{adi_query} {dl_year} AND state_fips_code = "{state_fips_code}"')
+        geo_df = bq_download(f'{geo_query} where state_fips_code = "{state_fips_code}"')
     else:
         adi_df = bq_download(f'{adi_query} {dl_year}')
         geo_df = bq_download(f'{geo_query}')
