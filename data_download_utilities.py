@@ -7,7 +7,7 @@ Created on Jun 28, 2024
 import sys
 import pandas as pd
 from google.cloud import bigquery
-import pandas_gbq
+import pandas_gbq 
 
 def csv_download(url):
     '''
