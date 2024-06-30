@@ -12,7 +12,7 @@ import pandas_gbq
 from data_download_utilities import csv_download, bq_download
 
 
-def pull_and_prep_zillow_data(dl_year, state_fips_code = "All"):
+def pull_and_prep_zillow_data(dl_year, state_fips_code):
     '''
     Pulls zillow data and preps it by averaging over the year of interest.  Also fixes issus with leading zeros being missing from FIPS codes.
     Args:
@@ -33,7 +33,7 @@ def pull_and_prep_zillow_data(dl_year, state_fips_code = "All"):
     months_to_avg_list = []
     for n in df_zillow.columns:
         if n[0:4] == dl_year:
-            print(n)
+            #print(n)
             months_to_avg_list.append(n)
     df_zillow['average'] = df_zillow[months_to_avg_list].mean(axis=1)
     # Need to drop State column to avoid a conflict in variable names when merging:
@@ -41,21 +41,30 @@ def pull_and_prep_zillow_data(dl_year, state_fips_code = "All"):
     return df_zillow
 
 
-def main(dl_year, state_fips_code, project_id, dataset_name, table_id):
-    # Pull Zillow Data.  We will pull the lower 33 percentile (bottom tier) for the state of interest.
-    df_st_zillow = pull_and_prep_zillow_data(dl_year, state_fips_code)
-    
+def pull_bigquery_data(dl_year, state_fips_code):
+    '''
+    TODO
+    '''
     # Pull Area Deprivation Index information by county for the state of interest.  Also pull county geometry information.
     adi_query = 'SELECT * FROM `bigquery-public-data.broadstreet_adi.area_deprivation_index_by_county` WHERE YEAR ='
     geo_query = 'SELECT * FROM `bigquery-public-data.geo_us_boundaries.counties`'
     if state_fips_code != 'All':
-        print(f'{adi_query} {dl_year} AND state_fips_code = "{state_fips_code}"')
+        #print(f'{adi_query} {dl_year} AND state_fips_code = "{state_fips_code}"')
         adi_df = bq_download(f'{adi_query} {dl_year} AND state_fips_code = "{state_fips_code}"')
         geo_df = bq_download(f'{geo_query} where state_fips_code = "{state_fips_code}"')
     else:
         adi_df = bq_download(f'{adi_query} {dl_year}')
         geo_df = bq_download(f'{geo_query}')
-        
+    return adi_df, geo_df
+
+
+def pull_and_merge_data(dl_year, state_fips_code):
+    '''
+    TODO
+    '''
+    # Pull Zillow Data.  We will pull the lower 33 percentile (bottom tier) for the state of interest.
+    df_st_zillow = pull_and_prep_zillow_data(dl_year, state_fips_code)
+    adi_df, geo_df = pull_bigquery_data(dl_year, state_fips_code)
     # Merge dataframes on FIPS codes.  Use outer joins for datasets which may not have records for some FIPS codes.
     merged_df = pd.merge(geo_df, adi_df, on='county_fips_code', how = 'outer')
     merged_df = pd.merge(merged_df, df_st_zillow, on='county_fips_code', how = 'outer')
@@ -63,9 +72,15 @@ def main(dl_year, state_fips_code, project_id, dataset_name, table_id):
     # We now need to get rid of any columns that start with a number as BigQuery does not allow this for column naming.
     for n in merged_df.columns:
         if n[0].isdigit():
-            print(f'Deleting {n} colummn.')
+            #print(f'Deleting {n} colummn.')
             merged_df.drop(n, axis = 1, inplace = True)
+    return merged_df
     
+
+def main(dl_year, state_fips_code, project_id, dataset_name, table_id):        
+    merged_df = pull_and_merge_data(dl_year, state_fips_code)
+    print(merged_df)
+    asdfsad
     # We will now build the dataset and table for housing these data and put our data into it.
     # Construct a BigQuery client object.
     client = bigquery.Client()
