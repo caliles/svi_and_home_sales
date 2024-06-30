@@ -1,8 +1,10 @@
-# svi_and_home_sales
+# U.S. Area Deprivation Index and Housing Prices
 
 
 
-
+```
+pip install requirements.txt
+```
 
 
 # Google Cloud Required APIs  
