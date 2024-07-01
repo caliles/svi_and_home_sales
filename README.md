@@ -89,7 +89,7 @@ Now that your dataset is ready, go to the original dashboard that was shared wit
 
 ![Alt text](imgs/5.png?raw=true "Copy the original Dashboard")
 
-You should be able to see the new copied dashboard now, although sometimes its fields are incorrect after the copy as in the image below.  If this occurs, first single left click on the map section of the dashboard.  If geo locations are incorrect, click on the value in the **Geospatial field** and make sure **county_geom** is selected as seen in the image below.  Also, ensure that **Average Zillow Housing Price** is selected for the **Size** field and **Area Deprivation Index** is selected for the **Color metric**.
+You should be able to see the new copied dashboard now, although sometimes its fields are incorrect after the copy as in the image below.  If this occurs, first single left click on the map section of the dashboard.  If geo locations are incorrect (i.e. bubbles are not appearing in the correct places on the map), click on the value in the **Geospatial field** and make sure **county_geom** is selected as seen in the image below.  Also, ensure that **Average Zillow Housing Price** is selected for the **Size** field and **Area Deprivation Index** is selected for the **Color metric**.
 
 ![Alt text](imgs/6.png?raw=true "Update the geospatial field")
 
