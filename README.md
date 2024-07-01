@@ -52,9 +52,9 @@ A description of the commandline arguments for the above script is provided belo
 
 **[state-fips-code]** = a two-digit state Federal Information Processing System (FIPS), i.e **48** for Texas.  Use **All** if you want to pull all records for all states.  
 
-**[google-cloud-project]** = the Google Cloud project where you want to deploy the data.  This code was tested in the same Google Cloud project where the data would reside.  
+**[google-cloud-project]** = the Google Cloud project where you want to deploy the data.  This has to be the original project created when initial_data_engineering_setup.py was run. 
 
-**[name-of-bigquery-dataset-for-data]** = the BigQuery dataset name in which you want your code to be hosted.  The code will build the dataset in BigQuery if it doesn't already exist.  
+**[name-of-bigquery-dataset-for-data]** = the BigQuery dataset name in which you want your code to be hosted.  This has to be the original dataset created when initial_data_engineering_setup.py was run. 
 
 **[name-of-bigquery-table-for-data]** = the BigQuery table to where you want the code to push the data.  This has to be the original table created when initial_data_engineering_setup.py was run.  
 
