@@ -11,11 +11,28 @@ Notebooks API (optional: only needed if using Vertex AI notebook for deployment)
 
 ## Installation
 
+To install this repo run the below commands:
+
 ```
-pip install requirements.txt
+git clone https://github.com/caliles/svi_and_home_sales.git
+cd svi_and_home_sales
+pip3 install -r requirements.txt
 ```
 
+## Running the Code
 
+Run the following command to execute the data pipeline.  You will need to substitute in values for the commandline arguments which are denoted in brackets after the Python script.
+
+'''
+python3 initial_data_engineering_setup.py [4-digit-year] [state-fsips-code] [google-cloud-project] [name-of-bigquery-dataset-for-data] [name-of-bigquery-table-for-data]
+'''
+
+A description of the commandline arguments for the above script is provided below:
+[4-digit-year] = a four digit year, recommend using **2020** as this is a known year with data in both Zillow home value index and ADI.  
+[state-fips-code] = a two-digit state Federal Information Processing System (FIPS), i.e **48** for Texas.  Use **All** if you want to pull all records.  
+[google-cloud-project] = the Google Cloud project where you want to deploy the data.  This was tested in the same Google Cloud project where the data would reside.  
+[name-of-bigquery-dataset-for-data] = the BigQuery dataset name in which you want your code to be hosted.  The code will build the dataset in BigQuery if it doesn't already exist.  
+[name-of-bigquery-table-for-data] = the BigQuery table to where you want the code to push the data.  This has to be a new table not already in exsitence for the code to work properly.  
 
 
 
