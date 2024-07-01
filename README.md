@@ -57,9 +57,9 @@ A description of the commandline arguments for the above script is provided belo
 
 **[name-of-bigquery-table-for-data]** = the BigQuery table to where you want the code to push the data.  This has to be a new table not already in exsitence for the code to work properly.  
 
-## Running the Code for Data Updates
+## Notes on Data Updates
 
-Run the following command to periodically update the data in BigQuery.  You will need to substitute in values for the commandline arguments which are denoted in brackets after the Python script.
+The previously mentioned command can be set up to run periodically via a cron job or perhaps as a Windows scheduled task.  Also, it could potentially be deployed to run as a Google Cloud Function triggered periodically by Cloud Scheduler; a very inexpensive means of deploying scheduled tasks in Google Cloud.
 
 
 ## Citations:
