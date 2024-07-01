@@ -1,4 +1,4 @@
-# U.S. Area Deprivation Index and Housing Prices
+# U.S. Area Deprivation Index and Zillow Home Value Index
 
 This repo is a data engineering pipeline designed to pull publicly available Zillow Home Value Index (ZHVI) records, county geometry, and Area Deprivation Index (ADI) data, merge them into a pandas dataframe, and push these data into a Google Cloud BigQuery table.  The Google Cloud BigQuery table is designed to serve as a backend for a LookerStudio dashboard geospatial plot for both ZHVI and ADI data that are temporally and geospatially aligned.  Users wishing to gain access to the LookerStudio dashboard will need a GMail account (or other G Suite enabled account). Request for access to the dashboard may be made to the author of this repo.  Users can then make a copy of the LookerStudio dashboard and connect it with their own BigQuery backend built by running the code in this repo.
 
