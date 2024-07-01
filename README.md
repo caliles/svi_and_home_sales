@@ -62,6 +62,11 @@ A description of the commandline arguments for the above script is provided belo
 The previously mentioned command can be set up to run periodically via a cron job or perhaps as a Windows scheduled task.  Also, it could potentially be deployed to run as a Google Cloud Function triggered periodically by Cloud Scheduler; a very inexpensive means of deploying scheduled tasks in Google Cloud.
 
 
+## LookerStudio Dashboard Copy and Deployment
+
+![Alt text](imgs/1.png?raw=true "Create a new LookerStudio DataSet")
+
+
 ## Citations:
 
 Zillow Home Value Index (ZHVI) All Homes Bottom Tier Series available at: https://www.zillow.com/research/data/
