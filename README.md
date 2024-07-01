@@ -83,7 +83,7 @@ Next, you will need to add some calculated fields to the dataset.  These are jus
 
 ![Alt text](imgs/4.png?raw=true "Create calculated fields")
 
-Now that your dataset is ready, go to the original dashboard that was shared with you by the author of this repo.  Select the more vert symbol (three vertically stacked dots in the top right of the browser) and then select ""Make a copy"".  Then, select the name of the new LookerStudio for **New Data Source** and select ""Copy Report"".
+Now that your dataset is ready, go to the original dashboard that was shared with you by the author of this repo.  Select the more vert symbol (three vertically stacked dots in the top right of the browser) and then select ""Make a copy"".  Then, select the name of the new LookerStudio dataset which you just created for **New Data Source** and select ""Copy Report"".
 
 **Note**: it may take a few minutes for your newly created dataset to pop up in the **New Data Source** dropdown menu.
 
