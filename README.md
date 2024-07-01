@@ -1,21 +1,25 @@
 # U.S. Area Deprivation Index and Housing Prices
 
-This repo is a data engineering pipeline designed to pull publicly available Zillow housing price records, county geometry, and Area Deprivation Index (ADI) data, merge them into a pandas dataframe, and push these data into a Google Cloud BigQuery table which is designed to serve as a 
+This repo is a data engineering pipeline designed to pull publicly available Zillow home value records, county geometry, and Area Deprivation Index (ADI) data, merge them into a pandas dataframe, and push these data into a Google Cloud BigQuery table which is designed to serve as a backend for a LookerStudio dashboard plotting both Zillow home values and ADI temporally and geospatially aligned.  Users wishing to gain access to the LookerStudio dashboard may request access from the author.  Users can then make a copy of the LookerStudio dashboard and connect it with their own BigQuery backend built by running this repo.
+
+This code is easiest to deploy within a Google Cloud environment.  Google Cloud accounts can be created with $300.00 of initial cloud costs paid by the vendor.  Initial deployment of this code did not exceed $10.00 in cloud costs.  The code was successfully developed and tested in Google Cloud with the repo deployed on a Vertex AI Jupyter notebook with the following VM image: Deployment Notebook: **Tensorflow Enterprise 2.6 (with LTS Intel MKL-DNN/MKL) with Python 3.9**.  Python 3.9 is strongly recommended to successfully install and run this repo.
+
+## Google Cloud Required APIs  
+The foolowing Googl Cloud APIs had to be activated within the test project to successfully deploy this repo:
+BigQuery API  
+Notebooks API (optional: only needed if using Vertex AI notebook for deployment) 
+
+## Installation
 
 ```
 pip install requirements.txt
 ```
 
 
-## Google Cloud Required APIs  
-BigQuery API  
-Cloud Build API  
-Cloud Logging API  
-Cloud Pub/Sub API  
-Notebooks API (optional
-Cloud Run Admin API
 
-Deployment Notebook: Tensorflow Enterprise 2.6 (with LTS Intel MKL-DNN/MKL) with Python 3.9
+
+
+
 
 ## Citations:
 
