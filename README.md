@@ -15,4 +15,4 @@ Cloud Pub/Sub API
 Notebooks API (optional
 Cloud Run Admin API
 
-Deployment Notebook: Tensorflow Enterprise 2.6 (with LTS Intel MKL-DNN/MKL)  
+Deployment Notebook: Tensorflow Enterprise 2.6 (with LTS Intel MKL-DNN/MKL) with Python 3.9
