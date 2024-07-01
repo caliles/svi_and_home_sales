@@ -23,9 +23,9 @@ pip3 install -r requirements.txt
 
 Run the following command to execute the data pipeline.  You will need to substitute in values for the commandline arguments which are denoted in brackets after the Python script.
 
-'''
+```
 python3 initial_data_engineering_setup.py [4-digit-year] [state-fsips-code] [google-cloud-project] [name-of-bigquery-dataset-for-data] [name-of-bigquery-table-for-data]
-'''
+```
 
 A description of the commandline arguments for the above script is provided below:
 [4-digit-year] = a four digit year, recommend using **2020** as this is a known year with data in both Zillow home value index and ADI.  
