@@ -79,7 +79,7 @@ You will then need to select your projects name and then the BigQuery dataset an
 
 ![Alt text](imgs/3.png?raw=true "Select the BigQuery project, dataset, and table")
 
-Next, you will need to add some calculated fields to the dataset.  These are just used as aliases which look better on the final dashboard.  Select **ADD A FIELD** and then enter **Area Deprivation Index** for the Field Name and enter **area_deprivation_index_percent** for the Formula.  Repeat this process once again by entering **Average Zillow Housing Price** for Field Name and selecting average for the Formula.  Once saved, navigate back to the LookerStudio main page by selecting the Looker emblem at the top left part of the browser.
+Next, you will need to add some calculated fields to the dataset.  These are just used as aliases which look better on the final dashboard.  Select **ADD A FIELD** and then enter **Area Deprivation Index** for the Field Name and enter **area_deprivation_index_percent** for the Formula.  Repeat this process once again by entering **Average Zillow Housing Price** for Field Name and selecting **average** for the Formula.  Once saved, navigate back to the LookerStudio main page by selecting the Looker emblem at the top left part of the browser.
 
 ![Alt text](imgs/4.png?raw=true "Create calculated fields")
 
