@@ -5,7 +5,8 @@ This repo is a data engineering pipeline designed to pull publicly available Zil
 This code is easiest to deploy within a Google Cloud environment.  Google Cloud accounts can be created with $300.00 of initial cloud costs paid by the vendor.  Initial deployment of this code did not exceed $10.00 in cloud costs.  The code was successfully developed and tested in Google Cloud with the repo deployed on a Vertex AI Jupyter notebook VM with the following VM image: **Tensorflow Enterprise 2.6 (with LTS Intel MKL-DNN/MKL) with Python 3.9**.  Python 3.9 is strongly recommended to successfully install and run this repo.  The VM size used for successful testing was an n1-standard-4 machine type with 100 GB of disk attached.  No accelerators (i.e. GPUs, TPUs) were required to run this code.
 
 ## Google Cloud Required APIs  
-The foolowing Googl Cloud APIs had to be activated within the test project to successfully deploy this repo.  This may require an Admin for the project to enable deployment  
+The foolowing Googl Cloud APIs had to be activated within the test project to successfully deploy this repo.  This may require an Admin for the project to enable deployment.  
+
 **BigQuery API**   
 **Notebooks API** (optional: only needed if using Vertex AI notebook for deployment)  
 
