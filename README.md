@@ -1,6 +1,6 @@
 # U.S. Area Deprivation Index and Housing Prices
 
-This repo is a data engineering pipeline designed to pull publicly available Zillow home value records, county geometry, and Area Deprivation Index (ADI) data, merge them into a pandas dataframe, and push these data into a Google Cloud BigQuery table.  The Google Cloud BigQuery table is designed to serve as a backend for a LookerStudio dashboard geospatial plot for both Zillow home values and ADI temporally and geospatially aligned.  Users wishing to gain access to the LookerStudio dashboard may request access from the author.  Users can then make a copy of the LookerStudio dashboard and connect it with their own BigQuery backend built by running the code in this repo.
+This repo is a data engineering pipeline designed to pull publicly available Zillow Home Value Index (ZHVI) records, county geometry, and Area Deprivation Index (ADI) data, merge them into a pandas dataframe, and push these data into a Google Cloud BigQuery table.  The Google Cloud BigQuery table is designed to serve as a backend for a LookerStudio dashboard geospatial plot for both ZHVI and ADI data that are temporally and geospatially aligned.  Users wishing to gain access to the LookerStudio dashboard will need a GMail account (or other G Suite enabled account). Request for access to the dashboard may be made to the author of this repo.  Users can then make a copy of the LookerStudio dashboard and connect it with their own BigQuery backend built by running the code in this repo.
 
 This code is easiest to deploy within a Google Cloud environment.  Google Cloud accounts can be created with $300.00 of initial cloud costs paid by the vendor.  Initial deployment of this code did not exceed $10.00 in cloud costs.  The code was successfully developed and tested in Google Cloud with the repo deployed on a Vertex AI Jupyter notebook VM with the following VM image: **Tensorflow Enterprise 2.6 (with LTS Intel MKL-DNN/MKL) with Python 3.9**.  Python 3.9 is strongly recommended to successfully install and run this repo.  The VM size used for successful testing was an n1-standard-4 machine type with 100 GB of disk attached.  No accelerators (i.e. GPUs, TPUs) were required to run this code.
 
@@ -30,7 +30,7 @@ python3 initial_data_engineering_setup.py [4-digit-year] [state-fsips-code] [goo
 
 A description of the command line arguments for the above script is provided below:  
 
-**[4-digit-year]** = a four digit year, recommend using **2020** as this is a known year with data in both Zillow home value index and ADI.  
+**[4-digit-year]** = a four digit year, recommend using **2020** as this is a known year with data in both ZHVI and ADI.  
 
 **[state-fips-code]** = a two-digit state Federal Information Processing System (FIPS), i.e **48** for Texas.  Use **All** if you want to pull all records for all states.  
 
