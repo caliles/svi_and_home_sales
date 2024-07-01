@@ -64,8 +64,39 @@ The previously mentioned command can be set up to run periodically via a cron jo
 
 ## LookerStudio Dashboard Copy and Deployment
 
-![Alt text](imgs/1.png?raw=true "Create a new LookerStudio DataSet")
+To deploy the LookerStudio dashboard available here: https://lookerstudio.google.com/reporting/10d07cd7-0625-4fda-8469-b0c4439fe32a/page/7Mj4D using the BigQuery data engineered by the previously mentioned code, you will first need to gain permission to view the original dashboard from the author of this repo.  Once you have permission to view the dashboard, you will need to navigate to LookerStudio and first create a new data source by selecting **Create** and then **Data srouce** as pictured below:  
 
+![Alt text](imgs/1.png?raw=true "Create a new LookerStudio data source")
+
+Next, you will need to select **BigQuery** as the Google Connector.  
+
+![Alt text](imgs/2.png?raw=true "Select BigQuery as the dataset source")
+
+You will then need to select your projects name and then the BigQuery dataset and table where your engineered data has beend deployed.  Then select **Connect** as seen below.  
+
+**Note**: your project, dataset, and table names will be different from the ones shown in the image below.  
+
+![Alt text](imgs/3.png?raw=true "Select the BigQuery project, dataset, and table")
+
+Next, you will need to add some calculated fields to the dataset.  These are just used as aliases which look better on the the final dashboard.  Select **ADD A FIELD** and then enter **Area Deprivation Index** for the Field Name and enter **area_deprivation_index_percent** for the Formula.  Repeat this process once again by enterring **Average Zillow Housing Price** for Field Name and selecting average for the Formula.  Once saved, navigate back to the LookerStudio main page by selecting the Looker emblem at the top left part of the browser.
+
+![Alt text](imgs/4.png?raw=true "Create calculated fields")
+
+Now that your dataset is ready, go to the original dashboard that was shared with you by the author of this repo.  Select the more vert symbol (three vertically stacked dots in the top right of the browser) and then select ""Make a copy"".  Then, select the name of the new LookerStudio for **New Data Source** and select ""Copy Report"".
+
+**Note**: it may take a few minutes for your newly created dataset to pop up in the **New Data Source** dropdown menu.
+
+![Alt text](imgs/5.png?raw=true "Copy the original Dashboard")
+
+You should be able to see the new copied dashboard now, although sometimes its fields are incorrect post copy as in the image below.  If this occurs, first single left click on the map.  If geo locations are incorrect, click on the value in the **Geospatial field** and make sure **county_geom** is selected as seen in the image below.  Also, ensure that **Average Zillow Housing Price** is selected for the **Size** field and **Area Deprivation Index** is selected for the **Color metric**.
+
+![Alt text](imgs/6.png?raw=true "Update the geospatial field")
+
+If everything appears correct, you should wind up with a dashboard looking like the one seen below:
+
+![Alt text](imgs/7.png?raw=true "Final, correct result")
+
+Please do not hesitate to reach out to the author if you have any issues with deployment.
 
 ## Citations:
 
